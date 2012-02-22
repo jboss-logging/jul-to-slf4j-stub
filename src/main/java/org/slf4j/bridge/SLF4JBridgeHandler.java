@@ -90,14 +90,7 @@ import org.slf4j.spi.LocationAwareLogger;
  */
 public class SLF4JBridgeHandler extends Handler {
 
-    // The caller is java.util.logging.Logger
-    private static final String FQCN = java.util.logging.Logger.class.getName();
     private static final String UNKNOWN_LOGGER_NAME = "unknown.jul.logger";
-
-    private static final int TRACE_LEVEL_THRESHOLD = Level.FINEST.intValue();
-    private static final int DEBUG_LEVEL_THRESHOLD = Level.FINE.intValue();
-    private static final int INFO_LEVEL_THRESHOLD = Level.INFO.intValue();
-    private static final int WARN_LEVEL_THRESHOLD = Level.WARNING.intValue();
 
     /**
      * Adds a SLF4JBridgeHandler instance to jul's root logger.
@@ -169,66 +162,11 @@ public class SLF4JBridgeHandler extends Handler {
 
     protected void callLocationAwareLogger(LocationAwareLogger lal,
                                            LogRecord record) {
-        int julLevelValue = record.getLevel().intValue();
-        int slf4jLevel;
-
-        if (julLevelValue <= TRACE_LEVEL_THRESHOLD) {
-            slf4jLevel = LocationAwareLogger.TRACE_INT;
-        } else if (julLevelValue <= DEBUG_LEVEL_THRESHOLD) {
-            slf4jLevel = LocationAwareLogger.DEBUG_INT;
-        } else if (julLevelValue <= INFO_LEVEL_THRESHOLD) {
-            slf4jLevel = LocationAwareLogger.INFO_INT;
-        } else if (julLevelValue <= WARN_LEVEL_THRESHOLD) {
-            slf4jLevel = LocationAwareLogger.WARN_INT;
-        } else {
-            slf4jLevel = LocationAwareLogger.ERROR_INT;
-        }
-        String i18nMessage = getMessageI18N(record);
-        lal.log(null, FQCN, slf4jLevel, i18nMessage, null, record.getThrown());
+        // no-op
     }
 
     protected void callPlainSLF4JLogger(Logger slf4jLogger, LogRecord record) {
-        String i18nMessage = getMessageI18N(record);
-        int julLevelValue = record.getLevel().intValue();
-        if (julLevelValue <= TRACE_LEVEL_THRESHOLD) {
-            slf4jLogger.trace(i18nMessage, record.getThrown());
-        } else if (julLevelValue <= DEBUG_LEVEL_THRESHOLD) {
-            slf4jLogger.debug(i18nMessage, record.getThrown());
-        } else if (julLevelValue <= INFO_LEVEL_THRESHOLD) {
-            slf4jLogger.info(i18nMessage, record.getThrown());
-        } else if (julLevelValue <= WARN_LEVEL_THRESHOLD) {
-            slf4jLogger.warn(i18nMessage, record.getThrown());
-        } else {
-            slf4jLogger.error(i18nMessage, record.getThrown());
-        }
-    }
-
-    /**
-     * Get the record's message, possibly via a resource bundle.
-     *
-     * @param record
-     *
-     * @return
-     */
-    private String getMessageI18N(LogRecord record) {
-        String message = record.getMessage();
-
-        if (message == null) {
-            return null;
-        }
-
-        ResourceBundle bundle = record.getResourceBundle();
-        if (bundle != null) {
-            try {
-                message = bundle.getString(message);
-            } catch (MissingResourceException e) {
-            }
-        }
-        Object[] params = record.getParameters();
-        if (params != null) {
-            message = MessageFormat.format(message, params);
-        }
-        return message;
+        // no-op
     }
 
     /**
