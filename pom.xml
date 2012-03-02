@@ -42,20 +42,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.jboss.logmanager</groupId>
-            <artifactId>jboss-logmanager</artifactId>
-            <version>1.2.2.GA</version>
-        </dependency>
-        <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
             <version>${org.slf4j.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
