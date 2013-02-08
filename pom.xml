@@ -28,7 +28,7 @@
 
     <groupId>org.jboss.logging</groupId>
     <artifactId>jul-to-slf4j-stub</artifactId>
-    <version>1.0.1.Beta1-SNAPSHOT</version>
+    <version>1.0.1.Final</version>
 
     <parent>
         <groupId>org.jboss</groupId>
