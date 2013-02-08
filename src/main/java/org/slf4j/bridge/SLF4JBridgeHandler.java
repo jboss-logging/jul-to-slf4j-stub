@@ -24,11 +24,7 @@
  */
 package org.slf4j.bridge;
 
-import java.text.MessageFormat;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
 import java.util.logging.Handler;
-import java.util.logging.Level;
 import java.util.logging.LogRecord;
 
 import org.slf4j.Logger;
@@ -125,6 +121,15 @@ public class SLF4JBridgeHandler extends Handler {
      */
     public static boolean isInstalled() throws SecurityException {
         return true;
+    }
+
+    /**
+     * Invoking this method removes/unregisters/detaches all handlers currently attached to the root logger
+     *
+     * @since 1.6.5
+     */
+    public static void removeHandlersForRootLogger() {
+        // no-op
     }
 
 
