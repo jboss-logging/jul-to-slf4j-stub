@@ -40,6 +40,14 @@
         <org.slf4j.version>1.7.2</org.slf4j.version>
     </properties>
 
+    <licenses>
+        <license>
+            <name>MIT</name>
+            <url>http://repository.jboss.org/licenses/mit.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
