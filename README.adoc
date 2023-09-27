@@ -1,0 +1,20 @@
+= jul-to-slf4j-stub
+
+This is a very simple project which simply overrides the `org.slf4j.bridge.SLF4JBridgeHandler` to do nothing. This is
+not a common library and has very specific use-cases
+
+== Usage
+
+=== Maven
+[source,xml]
+----
+<dependency>
+    <groupId>org.jboss.logging</groupId>
+    <artifactId>jul-to-slf4j-stub</artifactId>
+    <version>${version.org.jboss.logging.jul-to-slf4j-stub}</version>
+</dependency>
+----
+
+== Contributing
+
+See the link:CONTRIBUTING.adoc[contributing guide].
