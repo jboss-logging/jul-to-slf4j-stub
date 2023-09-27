@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (c) 2004-2011 QOS.ch
  * All rights reserved.
  *
@@ -42,6 +42,7 @@ import org.slf4j.spi.LocationAwareLogger;
  * SLF4JBridgeHandler instance will redirect all JUL log records are redirected
  * to the SLF4J API based on the following mapping of levels:
  * <p/>
+ *
  * <pre>
  * FINEST  -&gt; TRACE
  * FINER   -&gt; DEBUG
@@ -53,13 +54,14 @@ import org.slf4j.spi.LocationAwareLogger;
  * <p/>
  * Usage:
  * <p/>
+ *
  * <pre>
  * // call only once during initialization time of your application
  * SLF4JBridgeHandler.install();
  *
  * // usual pattern: get a Logger and then log a message
  * java.util.logging.Logger julLogger = java.util.logging.Logger
- *     .getLogger(&quot;org.wombat&quot;);
+ *         .getLogger(&quot;org.wombat&quot;);
  * julLogger.fine(&quot;hello world&quot;); // this will get redirected to SLF4J
  * </pre>
  * <p/>
@@ -132,7 +134,6 @@ public class SLF4JBridgeHandler extends Handler {
         // no-op
     }
 
-
     /**
      * Initialize this handler.
      */
@@ -165,7 +166,7 @@ public class SLF4JBridgeHandler extends Handler {
     }
 
     protected void callLocationAwareLogger(LocationAwareLogger lal,
-                                           LogRecord record) {
+            LogRecord record) {
         // no-op
     }
 
